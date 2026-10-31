@@ -12,19 +12,14 @@ jobs:
         with:
           node-version: "22.19.0"
           cache: "npm"
-          cache-dependency-path: giftproof/giftproof-app/package-lock.json
+          cache-dependency-path: package-lock.json
       - name: install
-        working-directory: giftproof/giftproof-app
         run: npm ci
       - name: typecheck
-        working-directory: giftproof/giftproof-app
         run: npm run typecheck
-      - name: test (offline + integration tiers only — live tier quarantined)
-        working-directory: giftproof/giftproof-app
+      - name: test (offline + integration tiers)
         run: npm test --if-present
       - name: build
-        working-directory: giftproof/giftproof-app
         run: npm run build
-      - name: verify-claims (recompute headline numbers, refuse read-back)
-        working-directory: giftproof/giftproof-app
-        run: npx tsx scripts/verify-claims.ts --dry
+      - name: verify-claims (recompute headline numbers keyless, refuse read-back)
+        run: npm run verify-claims

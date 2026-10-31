@@ -54,11 +54,9 @@ function SiteMark() {
   return (
     <div className="sticky top-0 z-40 border-b border-[var(--hair)] bg-paper">
       <div className="mx-auto flex max-w-5xl items-center gap-2.5 px-6 py-3">
-        <Link href="/" aria-label="GiftProof home" className="group flex items-center gap-2.5">
-          <ReceiptCorner />
-          <span className="font-mono text-[16px] font-bold tracking-[-0.02em] text-ink">
-            Gift<span className="text-accent-ink">Proof</span>
-          </span>
+        <Link href="/" aria-label="GiftProof home" className="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-nav.png" alt="GiftProof" className="h-7 w-auto" />
         </Link>
         <nav className="ml-auto flex items-center gap-5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">
           <Link href="/app" className="transition-colors hover:text-ink">The tool</Link>
@@ -69,16 +67,3 @@ function SiteMark() {
   );
 }
 
-// Logo: the GiftProof mark — a gift tag that is a receipt (gift + proof in one glyph).
-// Terracotta fill with paper-coloured cutouts so the hole/perforation/check read as negative space
-// on the paper nav. Mirrors public/logo-mark.svg + the app icon.
-function ReceiptCorner() {
-  return (
-    <svg width="18" height="22" viewBox="0 0 48 60" fill="none" aria-hidden className="shrink-0">
-      <path d="M17 5 L40 5 Q44 5 44 9 L44 44 l-4 3 l-4 -3 l-4 3 l-4 -3 l-4 3 l-4 -3 l-4 3 l-4 -3 L8 16 Q8 14 9.5 12.5 L15 7 Q16 5 17 5 Z" fill="var(--color-accent)" />
-      <circle cx="14.5" cy="12.5" r="2.4" fill="var(--color-paper)" />
-      <line x1="12" y1="24" x2="40" y2="24" stroke="var(--color-paper)" strokeWidth="1.6" strokeDasharray="2.4 2.4" strokeLinecap="round" />
-      <path d="M18 33 l3.6 3.6 L30 28.5" fill="none" stroke="var(--color-paper)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}

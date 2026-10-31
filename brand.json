@@ -7,16 +7,34 @@
   "brandColor": "#C0603A",
   "accent": "#C0603A",
   "accentInk": "#A64E2C",
-  "ink": ["#3A322A", "#5a4f44", "#8a7d6e"],
+  "ink": [
+    "#3A322A",
+    "#5a4f44",
+    "#8a7d6e"
+  ],
   "paper": "#F3EEE4",
   "paper2": "#FBF8F2",
-  "bandHues": { "high": "#5a8a5e", "medium": "#c08a3a", "low": "#9a8270", "fault": "#b05a3a" },
-  "fonts": { "display": "Fraunces", "mono": "JetBrains Mono", "body": "Inter" },
-  "radii": { "xs": 4, "sm": 6, "md": 8, "lg": 11 },
-  "shadowPhilosophy": "elevation-without-shadows — bg-step + hairline + ONE warm colored glow",
+  "bandHues": {
+    "high": "#5a8a5e",
+    "medium": "#c08a3a",
+    "low": "#9a8270",
+    "fault": "#b05a3a"
+  },
+  "fonts": {
+    "display": "Fraunces",
+    "mono": "JetBrains Mono",
+    "body": "Inter"
+  },
+  "radii": {
+    "xs": 4,
+    "sm": 6,
+    "md": 8,
+    "lg": 11
+  },
+  "shadowPhilosophy": "elevation-without-shadows \u2014 bg-step + hairline + ONE warm colored glow",
   "signatureElement": "The receipt: a live state-driven object that re-prints + re-bridges on taste-swap. Perforation (torn edge) is the divider motif everywhere.",
-  "logoConcept": "A gift tag that is a receipt — gift (hang-tag + string hole) fused with proof (perforated tear line, checkmark, torn receipt bottom), in terracotta.",
-  "logoProvider": "crafted_vector (fal 401 + Pollinations 402 unavailable; concept-driven crafted vector per leash/alter-ego process)",
+  "logoConcept": "A gift tag that is a receipt (gift + proof): string hole, perforated line, torn receipt bottom, terracotta on letterpress cream, with the GiftProof wordmark (Gift charcoal, Proof terracotta).",
+  "logoProvider": "AI image: Nano Banana Pro (lockup) via stablestudio.dev x402; mark cropped for icons; crafted vector retained as fallback",
   "logoPath": "public/logo.svg",
   "logoMarkPath": "public/logo-mark.svg",
   "logoPngPath": "public/logo.png",
