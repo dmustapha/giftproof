@@ -13,6 +13,31 @@ Built for the Qloo Agentic Hackathon ("Agents, but with taste.").
 
 ---
 
+## The product
+
+**1 · The pitch, with the proof.** The hero shows the real Qloo correlation as the headline number
+(`0.90`), crowning a live receipt whose cross-domain bridge draws from the real explainability
+contributors (Aesop · A24 · Succession) to the pick (Bruegger's).
+
+![Landing — the correlation as a monument, crowning a live receipt](docs/images/01-landing.png)
+
+**2 · One sentence in.** Describe someone's public taste in a single sentence (or tap a sample).
+
+![Find a gift — the taste input](docs/images/02-find-a-gift.png)
+
+**3 · Ranked gifts, each with its receipt.** Every card leads with the Qloo pick (the cross-domain
+surprise), tags the buyable gift, carries a real product/brand image where the leap lands, and shows
+the "Qloo says / we chose" receipt. Remove or add a taste chip and the whole grid re-prints live.
+
+![Results — ranked gifts, each with a drawn cross-domain receipt](docs/images/03-results.png)
+
+> **Honesty invariants bind the UI:** every number on screen is a real Qloo field (affinity,
+> explainability score, rank). No fabricated percentages, no PII sent to Qloo, degraded states are
+> labelled (never a blank grid dressed as Qloo-powered), and aggregate framing only
+> ("fans of X over-index on Y") — the proof is on `/proof` with the raw response.
+
+---
+
 ## How GiftProof uses Qloo
 
 Qloo is not a decoration here. It does the one piece of work the giver cannot do themselves: bridge a taste gap by correlating one kind of taste (a show, a brand, a studio) to a *giftable* kind of thing, ranked by real shared-audience affinity. Delete the Qloo call and the picks are empty. The LLM never ranks.
