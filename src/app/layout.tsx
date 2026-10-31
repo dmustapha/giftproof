@@ -23,9 +23,19 @@ const jbmono = JetBrains_Mono({
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://giftproof-app.vercel.app"),
   title: "GiftProof — a gift, with its receipt",
   description:
     "Gift someone whose taste you don't share. Qloo's taste graph finds a cross-domain gift; a live receipt shows exactly why.",
+  openGraph: {
+    title: "GiftProof — a gift, with its receipt",
+    description:
+      "Gift someone whose taste you don't share — ranked by Qloo, proven by the receipt.",
+    url: "https://giftproof-app.vercel.app",
+    siteName: "GiftProof",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: "GiftProof — a gift, with its receipt" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -59,18 +69,16 @@ function SiteMark() {
   );
 }
 
-// Logo: a torn receipt-corner mark (the one metaphor, SIGNATURE-SPEC).
+// Logo: the GiftProof mark — a gift tag that is a receipt (gift + proof in one glyph).
+// Terracotta fill with paper-coloured cutouts so the hole/perforation/check read as negative space
+// on the paper nav. Mirrors public/logo-mark.svg + the app icon.
 function ReceiptCorner() {
   return (
-    <svg width="20" height="22" viewBox="0 0 20 22" fill="none" aria-hidden className="shrink-0">
-      <path
-        d="M2 2h16v14l-2.7-1.6L12.6 16l-2.6-1.6L7.4 16l-2.7-1.6L2 16V2Z"
-        fill="var(--color-paper-2)"
-        stroke="var(--color-ink)"
-        strokeWidth="1.4"
-        strokeLinejoin="round"
-      />
-      <path d="M5.5 6.5h9M5.5 9.5h6" stroke="var(--color-accent)" strokeWidth="1.4" strokeLinecap="round" />
+    <svg width="18" height="22" viewBox="0 0 48 60" fill="none" aria-hidden className="shrink-0">
+      <path d="M17 5 L40 5 Q44 5 44 9 L44 44 l-4 3 l-4 -3 l-4 3 l-4 -3 l-4 3 l-4 -3 l-4 3 l-4 -3 L8 16 Q8 14 9.5 12.5 L15 7 Q16 5 17 5 Z" fill="var(--color-accent)" />
+      <circle cx="14.5" cy="12.5" r="2.4" fill="var(--color-paper)" />
+      <line x1="12" y1="24" x2="40" y2="24" stroke="var(--color-paper)" strokeWidth="1.6" strokeDasharray="2.4 2.4" strokeLinecap="round" />
+      <path d="M18 33 l3.6 3.6 L30 28.5" fill="none" stroke="var(--color-paper)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

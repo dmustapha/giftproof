@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/logo.svg" alt="GiftProof" width="300" />
+</p>
+
 # GiftProof
 
 **The gift agent that reads a stranger's taste.** Type one sentence about someone ("my sister is obsessed with Succession, Aesop, and A24") and GiftProof uses Qloo's cross-domain taste graph to rank gifts they will actually want, each with a receipt showing exactly why Qloo chose it.

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" role="img" aria-label="GiftProof">
+  <title>GiftProof</title>
+  <!-- mark -->
+  <g transform="translate(6,12) scale(0.8)">
+    <path d="M17 5 L40 5 Q44 5 44 9 L44 44 l-4 3 l-4 -3 l-4 3 l-4 -3 l-4 3 l-4 -3 l-4 3 l-4 -3 L8 16 Q8 14 9.5 12.5 L15 7 Q16 5 17 5 Z" fill="#C0603A"/>
+    <circle cx="14.5" cy="12.5" r="2.4" fill="#F3EEE4"/>
+    <line x1="12" y1="24" x2="40" y2="24" stroke="#F3EEE4" stroke-width="1.6" stroke-dasharray="2.4 2.4" stroke-linecap="round"/>
+    <path d="M18 33 l3.6 3.6 L30 28.5" fill="none" stroke="#F3EEE4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- wordmark (two-tone) -->
+  <text x="58" y="48" font-family="'Fraunces','Georgia',serif" font-size="38" font-weight="600" letter-spacing="-0.5">
+    <tspan fill="#3A322A">Gift</tspan><tspan fill="#A64E2C">Proof</tspan>
+  </text>
+</svg>
