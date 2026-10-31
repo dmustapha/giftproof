@@ -23,22 +23,22 @@ Built for the Qloo Agentic Hackathon ("Agents, but with taste.").
 (`0.90`), crowning a live receipt whose cross-domain bridge draws from the real explainability
 contributors (Aesop · A24 · Succession) to the pick (Bruegger's).
 
-![Landing — the correlation as a monument, crowning a live receipt](docs/images/01-landing.png)
+![Landing: the correlation as a monument, crowning a live receipt](docs/images/01-landing.png)
 
 **2 · One sentence in.** Describe someone's public taste in a single sentence (or tap a sample).
 
-![Find a gift — the taste input](docs/images/02-find-a-gift.png)
+![Find a gift: the taste input](docs/images/02-find-a-gift.png)
 
 **3 · Ranked gifts, each with its receipt.** Every card leads with the Qloo pick (the cross-domain
 surprise), tags the buyable gift, carries a real product/brand image where the leap lands, and shows
 the "Qloo says / we chose" receipt. Remove or add a taste chip and the whole grid re-prints live.
 
-![Results — ranked gifts, each with a drawn cross-domain receipt](docs/images/03-results.png)
+![Results: ranked gifts, each with a drawn cross-domain receipt](docs/images/03-results.png)
 
 > **Honesty invariants bind the UI:** every number on screen is a real Qloo field (affinity,
 > explainability score, rank). No fabricated percentages, no PII sent to Qloo, degraded states are
 > labelled (never a blank grid dressed as Qloo-powered), and aggregate framing only
-> ("fans of X over-index on Y") — the proof is on `/proof` with the raw response.
+> ("fans of X over-index on Y"). The proof is on `/proof` with the raw response.
 
 ---
 
