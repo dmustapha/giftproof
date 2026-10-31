@@ -130,6 +130,38 @@ npm run build     # next build
 
 A separate live tier (`vitest.live.config.ts`, `npm run test:live`) exercises the real Qloo endpoints when a key is present. `npm run verify-claims` recomputes every headline number in [CLAIMS.md](CLAIMS.md) from committed real Qloo output and exits non-zero on any mismatch.
 
+## Verify in 60s (judge path)
+
+One command re-derives the hero claim from committed real Qloo output. It runs **keyless** (no API keys) and refuses read-back:
+
+```
+git clone https://github.com/dmustapha/giftproof && cd giftproof
+npm ci
+npm run verify-claims
+```
+
+Expected output (verified from a clean checkout):
+
+```
+claims match (recomputed 3 journeys from data/)
+```
+
+It recomputes the reference journey ("my sister is obsessed with Succession, Aesop, and A24"): 8 Qloo calls, 12 cross-domain picks across 3 agent-chosen domains, each with real explainability contributors. The same raw request and response are live at https://giftproof-app.vercel.app/proof and committed at [submission/proof.md](submission/proof.md).
+
+## Documentation Suite
+
+For judges and teammates, the full document set:
+
+- [ARCHITECTURE.md](ARCHITECTURE.md) : system design and the Qloo call graph
+- [HANDOFF.md](HANDOFF.md) : cold-clone reproduce guide (target commit, fresh-clone verify, freeze list)
+- [CLAIMS.md](CLAIMS.md) : every headline number, recomputable by `npm run verify-claims`
+- [submission/proof.md](submission/proof.md) : the redacted request plus the raw Qloo response for one journey
+- [submission/HONESTY-LEDGER.md](submission/HONESTY-LEDGER.md) : what is real, simplified, and not built
+- [SECURITY.md](SECURITY.md) : threat matrix and what is not defended against
+- [LIMITATIONS.md](LIMITATIONS.md) : scope boundary
+- [DECISIONS.md](DECISIONS.md) : architecture decision log
+- [ORGANIZER-FEEDBACK.md](ORGANIZER-FEEDBACK.md) : developer-experience feedback for the Qloo and 0G teams
+
 ## API
 
 All routes are Next.js App Router handlers under `src/app/api/`:
