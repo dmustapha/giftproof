@@ -1,0 +1,1 @@
+next.js, react, typescript, tailwindcss, qloo, qloo-taste-api, 0g-compute, llm, agent, zod, vercel, lru-cache, node.js
