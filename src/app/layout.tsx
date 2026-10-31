@@ -56,7 +56,7 @@ function SiteMark() {
       <div className="mx-auto flex max-w-5xl items-center gap-2.5 px-6 py-3">
         <Link href="/" aria-label="GiftProof home" className="group flex items-center gap-2.5">
           <ReceiptCorner />
-          <span className="font-mono text-[12px] font-semibold uppercase tracking-[0.22em] text-ink">
+          <span className="font-mono text-[16px] font-bold tracking-[-0.02em] text-ink">
             Gift<span className="text-accent-ink">Proof</span>
           </span>
         </Link>

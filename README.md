@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/logo.svg" alt="GiftProof" width="300" />
+  <img src="public/logo.png" alt="GiftProof" width="340" />
 </p>
 
 # GiftProof
