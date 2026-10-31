@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-10-29",
+  "project": "giftproof",
+  "note": "Machine honesty ledger. Each claim is recomputable from committed real artifacts in this repo. The franchise recompute-verifier is scripts/verify-claims.ts (recomputes headline numbers from data/seed-journeys.json and refuses read-back). Populated from the REAL build run; no fabricated values.",
+  "claims": [
+    {
+      "id": "qloo-cross-domain-insights",
+      "claim": "Qloo /v2/insights returns ranked entities with real affinity scores; the hero (sister/Succession) journey's #1 pick carries affinity 0.908.",
+      "evidence": "data/seed-journeys.json journeys[id=sister-succession].response.picks[0].pick.affinity = 0.9076620942325413 (rounds to 0.91 display band); recompute: node -e \"const d=require('./data/seed-journeys.json');console.log(d.journeys.find(j=>j.id==='sister-succession').response.picks[0].pick.affinity)\"",
+      "verified": true
+    },
+    {
+      "id": "qloo-explainability-contributors",
+      "claim": "Qloo insights are explainable: each ranked entity exposes query.explainability contributors (signal.interests.entities), surfaced as top contributors A24 / Succession / Aesop for the hero pick.",
+      "evidence": "data/seed-journeys.json journeys[id=sister-succession].response.picks[0].provenance.qlooSays.topContributors = [\"A24\",\"Succession\",\"Aesop\"]; raw contributors at response.raw.results.entities[*].query.explainability['signal.interests.entities']; parser src/lib/qloo/insights.ts",
+      "verified": true
+    },
+    {
+      "id": "resolved-entities-ranked-picks",
+      "claim": "Each seed taste resolves to a real Qloo entity ID; the hero journey returns 12 cross-domain ranked picks spanning the agent's chosen domains, with all tastes resolved.",
+      "evidence": "data/seed-journeys.json journeys[id=sister-succession].response.picks.length = 12; .response.agent.chosenDomains spans multiple giftable domains; each picks[].pick.entityId is a real Qloo UUID",
+      "verified": true
+    },
+    {
+      "id": "hero-qloo-call-count",
+      "claim": "The hero journey makes 8 Qloo calls (DEPTH PASS: /search resolution per taste + a multi-domain parallel /v2/insights fan-out across the agent's chosen domains), recorded in response.agent.qlooCallCount.",
+      "evidence": "recomputed by scripts/verify-claims.ts from data/seed-journeys.json response.agent.qlooCallCount = 8; `npx tsx scripts/verify-claims.ts` -> 'claims match (recomputed 3 journeys from data/)'",
+      "verified": true
+    },
+    {
+      "id": "zerog-extraction-live",
+      "claim": "0G Compute Router (router-api.0g.ai/v1, gemini-2.5-flash) performs live sentence->tastes extraction; the hero sentence extracts [Succession, Aesop, A24] with recipient 'my sister' dropped (PII floor NN-2).",
+      "evidence": ".build-state.json verification_commands: 'LIVE 0G extract (hero) => 3 tastes [Succession:tv_show, Aesop, A24], recipient my sister dropped (NN-2), NOT alias-shaped'; code src/lib/llm/extract.ts (0G client, throws ExtractionUnavailableError on failure)",
+      "verified": true
+    },
+    {
+      "id": "zerog-sole-llm-path",
+      "claim": "0G is the SOLE LLM path for both extraction and narration; there is no template/alias fallback (DEV-018 user ruling). On 0G failure the app fails honestly (throws / returns available:false), never a fabricated template.",
+      "evidence": "src/lib/llm/extract.ts:44,59 throw ExtractionUnavailableError; src/lib/llm/narrate.ts:29,43,47 throw NarrationUnavailableError; HONEST-FAILURE verification_command: 0G bad base url -> /api/narrate {narration:null,available:false}, /api/gift EXTRACTION_UNAVAILABLE with 0 fake cards",
+      "verified": true
+    },
+    {
+      "id": "qloo-always-ranks",
+      "claim": "Qloo always ranks regardless of LLM availability (invariant NN-1): the gift grid still renders real Qloo picks when 0G is down.",
+      "evidence": ".build-state.json HONEST-FAILURE verification_command: '0G bad base url ... gift grid still renders'; INVARIANTS NN-1; narration is lazy/off critical path (picks[].narration=null)",
+      "verified": true
+    },
+    {
+      "id": "catalog-liveness-e1",
+      "claim": "Gift catalog E-1 liveness: a sampled set of catalog buy-links are reachable (20/20).",
+      "evidence": ".build-state.json phase-3 evidence + verification: 'E-1 catalog liveness 20/20 reachable'; script scripts/catalog-liveness.ts; data/gift-catalog.json (882 items)",
+      "verified": true
+    },
+    {
+      "id": "gift-api-latency-e2",
+      "claim": "E-2: /api/gift cold path (0G up) completes in 5.80s, within the <=6s budget; picks[].narration=null (lazy, off critical path).",
+      "evidence": ".build-state.json verification_command: 'E-2 /api/gift cold path (0G up) => 5.80s <= 6s; picks[].narration=null (lazy, off critical path)'",
+      "verified": true
+    },
+    {
+      "id": "no-secret-in-client",
+      "claim": "No QLOO_API_KEY or ZEROG_COMPUTE_API_KEY (name or value) is present in the client bundle .next/static (NN-6).",
+      "evidence": "grep -rE 'QLOO_API_KEY|ZEROG_COMPUTE_API_KEY' .next/static -> 0 matches (re-run during remediation 2026-10-29); .build-state.json security_gate.web.secret_in_client = PASS",
+      "verified": true
+    },
+    {
+      "id": "test-suite-green",
+      "claim": "The offline test suite passes: 39 tests across 9 files, with tsc --noEmit reporting 0 errors.",
+      "evidence": "`npm run test` -> 'Test Files 9 passed (9) / Tests 39 passed (39)'; `npx tsc --noEmit` -> exit 0 (both re-run during remediation 2026-10-29)",
+      "verified": true
+    }
+  ]
+}

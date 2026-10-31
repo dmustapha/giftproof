@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.19.0"
+          cache: "npm"
+          cache-dependency-path: giftproof/giftproof-app/package-lock.json
+      - name: install
+        working-directory: giftproof/giftproof-app
+        run: npm ci
+      - name: typecheck
+        working-directory: giftproof/giftproof-app
+        run: npm run typecheck
+      - name: test (offline + integration tiers only — live tier quarantined)
+        working-directory: giftproof/giftproof-app
+        run: npm test --if-present
+      - name: build
+        working-directory: giftproof/giftproof-app
+        run: npm run build
+      - name: verify-claims (recompute headline numbers, refuse read-back)
+        working-directory: giftproof/giftproof-app
+        run: npx tsx scripts/verify-claims.ts --dry

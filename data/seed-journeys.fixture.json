@@ -1,0 +1,102 @@
+{
+  "_note": "hand-built fixture, NOT live Qloo output — a typed render stub so the landing is not blank before the Qloo key lands (PLAN Task 0.4). Placeholder entity IDs are intentional and labeled. data/seed-journeys.json (real, earned) takes precedence over this file once P3.1 produces it.",
+  "journeys": [
+    {
+      "id": "sister-succession",
+      "title": "For my sister — Succession, Aesop, A24",
+      "sentence": "My sister is obsessed with Succession, Aesop skincare, and A24 films.",
+      "fixture": true,
+      "response": {
+        "domain": "urn:entity:brand",
+        "degraded": null,
+        "coverage": { "resolved": 3, "total": 3, "misses": [] },
+        "seeds": [
+          { "id": "s0", "label": "Succession", "signal": { "kind": "entity", "value": "fixture:succession", "label": "Succession", "source": "search" } },
+          { "id": "s1", "label": "Aesop", "signal": { "kind": "entity", "value": "fixture:aesop", "label": "Aesop", "source": "search" } },
+          { "id": "s2", "label": "A24", "signal": { "kind": "entity", "value": "fixture:a24", "label": "A24", "source": "search" } }
+        ],
+        "picks": [
+          {
+            "pick": { "entityId": "fixture:diptyque", "name": "Diptyque", "type": "urn:entity:brand", "affinity": null, "rankBand": "high", "rankPosition": 1, "explain": [ { "entityId": "fixture:aesop", "label": "Aesop", "score": null }, { "entityId": "fixture:a24", "label": "A24", "score": null } ] },
+            "gift": { "sku": "diptyque-egift-25", "title": "Diptyque e-gift card ($25)", "provider": "Diptyque", "buyUrl": "https://www.diptyqueparis.com/en_us/e-gift-card.html", "matchType": "exact", "matchedEntity": "fixture:diptyque" },
+            "provenance": { "qlooSays": { "rankStatement": "Ranked #1 of gift categories for this audience", "topContributors": ["Aesop", "A24"], "affinityBand": "high rank band", "raw": { "entityId": "fixture:diptyque", "note": "fixture" } }, "weChose": { "reason": "direct digital-gift match", "matchType": "exact" } },
+            "narration": "Qloo ranks Diptyque #1 for fans of Aesop and A24 — the indie-luxury fragrance world these tastes cluster around."
+          },
+          {
+            "pick": { "entityId": "fixture:mubi", "name": "MUBI", "type": "urn:entity:brand", "affinity": null, "rankBand": "high", "rankPosition": 2, "explain": [ { "entityId": "fixture:a24", "label": "A24", "score": null } ] },
+            "gift": { "sku": "mubi-gift-3mo", "title": "MUBI 3-month gift subscription", "provider": "MUBI", "buyUrl": "https://mubi.com/gift", "matchType": "semantic", "matchedEntity": "fixture:mubi" },
+            "provenance": { "qlooSays": { "rankStatement": "Ranked #2 of gift categories for this audience", "topContributors": ["A24"], "affinityBand": "high rank band", "raw": { "entityId": "fixture:mubi", "note": "fixture" } }, "weChose": { "reason": "closest buyable form of this taste cluster", "matchType": "semantic" } },
+            "narration": "A24 fans skew toward curated arthouse film — Qloo puts MUBI in the top tier for this audience."
+          },
+          {
+            "pick": { "entityId": "fixture:anthropologie", "name": "Anthropologie", "type": "urn:entity:brand", "affinity": null, "rankBand": "medium", "rankPosition": 3, "explain": [] },
+            "gift": { "sku": "anthropologie-egift-50", "title": "Anthropologie e-gift card ($50)", "provider": "Anthropologie", "buyUrl": "https://www.anthropologie.com/gift-cards", "matchType": "semantic", "matchedEntity": "fixture:anthropologie" },
+            "provenance": { "qlooSays": { "rankStatement": "Ranked #3 of gift categories for this audience", "topContributors": [], "affinityBand": "medium rank band", "raw": { "entityId": "fixture:anthropologie", "note": "fixture", "explainabilityAbsent": true } }, "weChose": { "reason": "closest buyable form of this taste cluster", "matchType": "semantic" } },
+            "narration": "Contributors not returned for this pick; Qloo ranks Anthropologie #3 for this audience."
+          }
+        ],
+        "raw": { "note": "fixture — real raw Qloo response lands when data/seed-journeys.json is generated with a live key" }
+      }
+    },
+    {
+      "id": "dad-jazz-woodworking",
+      "title": "For my dad — jazz records and woodworking",
+      "sentence": "My dad loves jazz records and woodworking.",
+      "fixture": true,
+      "response": {
+        "domain": "urn:entity:book",
+        "degraded": null,
+        "coverage": { "resolved": 2, "total": 2, "misses": [] },
+        "seeds": [
+          { "id": "s0", "label": "jazz", "signal": { "kind": "tag", "value": "urn:tag:genre:jazz", "label": "jazz", "source": "tags" } },
+          { "id": "s1", "label": "woodworking", "signal": { "kind": "tag", "value": "urn:tag:hobby:woodworking", "label": "woodworking", "source": "tags" } }
+        ],
+        "picks": [
+          {
+            "pick": { "entityId": "fixture:bluenote", "name": "Blue Note Records", "type": "urn:entity:brand", "affinity": null, "rankBand": "high", "rankPosition": 1, "explain": [ { "entityId": "fixture:jazz", "label": "jazz", "score": null } ] },
+            "gift": { "sku": "bluenote-vinyl-club", "title": "Blue Note vinyl subscription (gift)", "provider": "Blue Note", "buyUrl": "https://www.bluenote.com/", "matchType": "exact", "matchedEntity": "fixture:bluenote" },
+            "provenance": { "qlooSays": { "rankStatement": "Ranked #1 of gift categories for this audience", "topContributors": ["jazz"], "affinityBand": "high rank band", "raw": { "entityId": "fixture:bluenote", "note": "fixture" } }, "weChose": { "reason": "direct digital-gift match", "matchType": "exact" } },
+            "narration": "Qloo ranks Blue Note #1 for the jazz-and-craft audience — the definitive jazz label for a records lover."
+          },
+          {
+            "pick": { "entityId": "fixture:bookshop", "name": "Bookshop.org", "type": "urn:entity:book", "affinity": null, "rankBand": "medium", "rankPosition": 2, "explain": [ { "entityId": "fixture:woodworking", "label": "woodworking", "score": null } ] },
+            "gift": { "sku": "bookshop-egift-40", "title": "Bookshop.org e-gift card ($40)", "provider": "Bookshop.org", "buyUrl": "https://bookshop.org/gift-cards", "matchType": "semantic", "matchedEntity": "fixture:bookshop" },
+            "provenance": { "qlooSays": { "rankStatement": "Ranked #2 of gift categories for this audience", "topContributors": ["woodworking"], "affinityBand": "medium rank band", "raw": { "entityId": "fixture:bookshop", "note": "fixture" } }, "weChose": { "reason": "closest buyable form of this taste cluster", "matchType": "semantic" } },
+            "narration": "Woodworking fans over-index on craft manuals and maker titles — Qloo surfaces Bookshop.org as the top-tier buyable form."
+          }
+        ],
+        "raw": { "note": "fixture — real raw Qloo response lands when data/seed-journeys.json is generated with a live key" }
+      }
+    },
+    {
+      "id": "coworker-climbing-coffee",
+      "title": "For my coworker — rock climbing and specialty coffee",
+      "sentence": "My coworker is into rock climbing and specialty coffee.",
+      "fixture": true,
+      "response": {
+        "domain": "urn:entity:brand",
+        "degraded": null,
+        "coverage": { "resolved": 2, "total": 2, "misses": [] },
+        "seeds": [
+          { "id": "s0", "label": "rock climbing", "signal": { "kind": "tag", "value": "urn:tag:activity:climbing", "label": "rock climbing", "source": "tags" } },
+          { "id": "s1", "label": "specialty coffee", "signal": { "kind": "entity", "value": "fixture:bluebottle", "label": "Blue Bottle", "source": "search" } }
+        ],
+        "picks": [
+          {
+            "pick": { "entityId": "fixture:patagonia", "name": "Patagonia", "type": "urn:entity:brand", "affinity": null, "rankBand": "high", "rankPosition": 1, "explain": [ { "entityId": "fixture:climbing", "label": "rock climbing", "score": null } ] },
+            "gift": { "sku": "patagonia-egift-50", "title": "Patagonia e-gift card ($50)", "provider": "Patagonia", "buyUrl": "https://www.patagonia.com/gift-cards.html", "matchType": "semantic", "matchedEntity": "fixture:patagonia" },
+            "provenance": { "qlooSays": { "rankStatement": "Ranked #1 of gift categories for this audience", "topContributors": ["rock climbing"], "affinityBand": "high rank band", "raw": { "entityId": "fixture:patagonia", "note": "fixture" } }, "weChose": { "reason": "closest buyable form of this taste cluster", "matchType": "semantic" } },
+            "narration": "Climbers cluster hard around Patagonia — Qloo ranks it #1 for this outdoor audience."
+          },
+          {
+            "pick": { "entityId": "fixture:bluebottle", "name": "Blue Bottle Coffee", "type": "urn:entity:brand", "affinity": null, "rankBand": "high", "rankPosition": 2, "explain": [ { "entityId": "fixture:coffee", "label": "specialty coffee", "score": null } ] },
+            "gift": { "sku": "bluebottle-egift-35", "title": "Blue Bottle Coffee e-gift card ($35)", "provider": "Blue Bottle", "buyUrl": "https://www.bluebottlecoffee.com/us/eng/gift-cards", "matchType": "exact", "matchedEntity": "fixture:bluebottle" },
+            "provenance": { "qlooSays": { "rankStatement": "Ranked #2 of gift categories for this audience", "topContributors": ["specialty coffee"], "affinityBand": "high rank band", "raw": { "entityId": "fixture:bluebottle", "note": "fixture" } }, "weChose": { "reason": "direct digital-gift match", "matchType": "exact" } },
+            "narration": "Qloo ranks Blue Bottle #2 for this audience — the specialty-coffee signal maps straight to a buyable e-gift."
+          }
+        ],
+        "raw": { "note": "fixture — real raw Qloo response lands when data/seed-journeys.json is generated with a live key" }
+      }
+    }
+  ]
+}

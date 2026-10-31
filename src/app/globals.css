@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   GiftProof — a letterpress taste-ledger. Warm cotton paper, warm ink,
+   ONE terracotta accent. Band hues are DATA-ONLY (NN-3). See SELECTION.md R2.
+   ========================================================================== */
+
+@theme {
+  /* role colors → generate bg-/text-/border- utilities */
+  /* ground < panel bg-step is a FELT ~2% (critic R5): elevation without shadows needs a real step. */
+  --color-paper: oklch(96.3% 0.013 85);
+  --color-paper-2: oklch(98.4% 0.009 85);
+  --color-paper-sink: oklch(94.2% 0.016 80);
+  --color-ink: oklch(26% 0.018 70);
+  --color-ink-2: oklch(42% 0.016 70);
+  --color-ink-3: oklch(52% 0.013 70);
+  --color-accent: oklch(60% 0.14 48);
+  --color-accent-ink: oklch(46% 0.13 46);
+
+  /* band hues — DATA ONLY, never chrome */
+  --color-band-high: oklch(56% 0.11 150);
+  --color-band-medium: oklch(66% 0.12 75);
+  --color-band-low: oklch(62% 0.055 60);
+  --color-band-fault: oklch(56% 0.1 40);
+
+  --font-display: "Fraunces", "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  color-scheme: light;
+  /* ink alpha ladder */
+  --ink-04: oklch(26% 0.018 70 / 0.04);
+  --ink-06: oklch(26% 0.018 70 / 0.06);
+  --ink-08: oklch(26% 0.018 70 / 0.08);
+  --ink-10: oklch(26% 0.018 70 / 0.1);
+  --ink-12: oklch(26% 0.018 70 / 0.12);
+  --ink-20: oklch(26% 0.018 70 / 0.2);
+  /* accent alpha ladder */
+  --accent-08: oklch(60% 0.14 48 / 0.08);
+  --accent-12: oklch(60% 0.14 48 / 0.12);
+  --accent-20: oklch(60% 0.14 48 / 0.2);
+  --accent-35: oklch(60% 0.14 48 / 0.35);
+  --hair: var(--ink-10);
+}
+
+html, body { padding: 0; margin: 0; }
+
+/* The constructed field (R1): warm paper + a faint cross-domain connector lattice
+   (fine diagonal ledger rule, NOT a plain grid). The ONE terracotta ambient glow is a
+   separate BREATHING layer (chit grade-setter: "a single breathing radial ember"). */
+body {
+  --lattice: oklch(26% 0.018 70 / 0.055);
+  background-color: var(--color-paper);
+  background-image:
+    repeating-linear-gradient(26deg, var(--lattice) 0 1px, transparent 1px 13px),
+    repeating-linear-gradient(-26deg, var(--lattice) 0 1px, transparent 1px 23px),
+    repeating-linear-gradient(26deg, transparent 0 11px, var(--ink-04) 11px 12px, transparent 12px 72px);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+/* the breathing ember — one soft terracotta radial, alive, behind everything (R1 + R6 atmosphere) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(70rem 48rem at 76% -6%, oklch(60% 0.14 48 / 0.22), transparent 60%),
+    radial-gradient(52rem 40rem at 10% 108%, oklch(66% 0.12 75 / 0.1), transparent 62%);
+  animation: glow-breathe 11s ease-in-out infinite;
+}
+
+/* perforation divider — the one-metaphor divider rule */
+.perf {
+  height: 0;
+  border-top: 1.5px dashed var(--ink-20);
+  position: relative;
+}
+
+/* elevation via a COLORED glow, never a black drop (R5 / chit): raised signature objects
+   sit in a soft warm pool of light + a crisp hairline, so they read deep on flat paper. */
+.glow-raise {
+  box-shadow:
+    0 1px 0 0 oklch(100% 0 0 / 0.5) inset,
+    0 24px 60px -32px oklch(60% 0.14 48 / 0.55),
+    0 2px 10px -6px oklch(26% 0.018 70 / 0.18);
+}
+
+/* ---- signature re-print choreography (R6) ---------------------------------- */
+@keyframes slip-print {
+  0%   { opacity: 0; transform: translateY(8px); clip-path: inset(0 0 100% 0); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); }
+}
+@keyframes clause-reveal {
+  0%   { opacity: 0; transform: translateY(6px); filter: blur(5px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes strand-draw {
+  from { stroke-dashoffset: var(--len, 200); }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.62; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.04); }
+}
+/* demonstrative staggered reveal (chit "row-in"): content prints up into place on load/scroll */
+@keyframes reveal-up {
+  0%   { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+/* the TEAR (SIGNATURE-SPEC §MECHANISM step 2): the old slip clip-collapses upward before the new
+   one prints — so a swap reads as "the receipt tears away and a new one prints," not a hard swap. */
+@keyframes slip-tear {
+  0%   { opacity: 1; transform: translateY(0) scaleY(1); clip-path: inset(0 0 0 0); }
+  100% { opacity: 0; transform: translateY(-8px) scaleY(0.96); clip-path: inset(0 0 72% 0); }
+}
+
+.slip-reprint { animation: slip-print 0.52s var(--ease-expo) both; }
+.clause-reveal { animation: clause-reveal 0.5s var(--ease-expo) both; }
+.strand-draw {
+  stroke-dasharray: var(--len, 200);
+  animation: strand-draw 0.6s var(--ease-expo) both;
+}
+/* reveal-up with a per-item stagger via inline --d; demonstrates the product printing itself in */
+.reveal-up { animation: reveal-up 0.62s var(--ease-expo) both; animation-delay: var(--d, 0s); }
+.slip-tear { animation: slip-tear 0.18s var(--ease-expo) both; }
+
+/* Two-sided reduced motion (R6): decorative motion only when allowed … */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Two-sided RM: kill the tweens AND force the correct END state so no clipped/blurred start frame
+     can flash (critic NIT — slip-print 0% is fully clip-path-inset; clause-reveal 0% is blurred). */
+  .slip-reprint { animation: none !important; clip-path: inset(0) !important; opacity: 1 !important; transform: none !important; }
+  .clause-reveal { animation: none !important; opacity: 1 !important; filter: none !important; transform: none !important; }
+  .strand-draw { animation: none !important; stroke-dashoffset: 0 !important; }
+  .reveal-up { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .slip-tear { animation: none !important; opacity: 0 !important; }
+  body::before { animation: none !important; opacity: 0.7 !important; transform: none !important; }
+}
