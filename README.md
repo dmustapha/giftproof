@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Tests](https://img.shields.io/badge/tests-71%20passing-brightgreen)
 
-**Live demo:** https://gift.132-145-100-81.sslip.io
+**Live demo:** https://giftproof-app.vercel.app
 
 Built for the Qloo Agentic Hackathon ("Agents, but with taste.").
 
